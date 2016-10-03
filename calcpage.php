@@ -21,16 +21,16 @@ if(empty($exp_raw)){
    echo 'empty input';
    exit;
 } else {
-   $check = preg_match('#[^0-9eE()\+-.\/\*x\ ]#',$exp_raw);
+   $check = preg_match('#[^0-9()\+-.\/\*x\ ]#',$exp_raw);
    if($check) {
-      $fail_char = preg_replace('#[0-9eE()\+-.\/\*x\ ]#','',$exp_raw);
+      $fail_char = preg_replace('#[0-9()\+-.\/\*x\ ]#','',$exp_raw);
       echo "error, ";
       echo $fail_char;
       echo " is not a valid input character.";
       exit;
    } else {
       // sanitize
-      $exp_san = preg_replace('#[^0-9eE()\+-.\/\*x\ ]#','',$exp_raw);
+      $exp_san = preg_replace('#[^0-9()\+-.\/\*x\ ]#','',$exp_raw);
       // catch a couple off-cases
       $exp_par = str_replace(')(',')*(',$exp_san);
       $exp_fix = str_replace('x','*',$exp_par);
