@@ -31,7 +31,7 @@ if(empty($exp_raw)){
    } else {
       // sanitize
       $exp_san = preg_replace('#[^0-9()\+-.\/\*\^xeE\ ]#','',$exp_raw);
-      // catch a couple off-cases
+      // add various notations
       $exp_par = str_replace(')(',')*(',$exp_san);
       $exp_pow = str_replace('**','^',$exp_par);
       $exp_tim = str_replace('x','*',$exp_pow);
