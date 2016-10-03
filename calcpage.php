@@ -35,7 +35,7 @@ if(empty($exp_raw)){
       $exp_par = str_replace(')(',')*(',$exp_san);
       $exp_pow = str_replace('**','^',$exp_par);
       $exp_tim = str_replace('x','*',$exp_pow);
-      $exp_sci = preg_replace('#[e|E]#','*10^',$exp_tim);
+      $exp_sci = preg_replace('#(\d+)[e|E](\d+)#','($1*10^$2)',$exp_tim);
       $exp_fix = $exp_sci;
 
       // following two lines for debug
