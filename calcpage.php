@@ -10,6 +10,8 @@ require_once "RR/Shunt/Exception/RuntimeError.php";
 require_once "RR/Shunt/Exception/SyntaxError.php";
 use RR\Shunt\Parser;
 
+header("Content-Type: text/plain");
+
 // allows for + in the url, rather than %2B
 if(strpos($_SERVER["QUERY_STRING"], "+") !== false){
    $_SERVER["QUERY_STRING"] = str_replace("+", "%2B", $_SERVER["QUERY_STRING"]);
