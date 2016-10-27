@@ -27,17 +27,17 @@ if(empty($exp_raw)){
    if($check) {
       $fail_char = preg_replace('#[0-9()\+-.\/\*\^xeE\ ]#','',$exp_raw);
       echo "error, ";
-      echo $fail_char;
-      echo " is not a valid input character.";
+      echo implode(array_unique(str_split($fail_char)));
+      echo " is not valid input.";
       exit;
    } else {
       // sanitize
       $exp_san = preg_replace('#[^0-9()\+-.\/\*\^xeE\ ]#','',$exp_raw);
-      // add various notations
+      // catch a couple off-cases
       $exp_par = str_replace(')(',')*(',$exp_san);
       $exp_pow = str_replace('**','^',$exp_par);
       $exp_tim = str_replace('x','*',$exp_pow);
-      $exp_sci = preg_replace('#(\d+)[e|E](\d+)#','($1*10^$2)',$exp_tim);
+      $exp_sci = preg_replace('#(\d+)[e|E](-?\+?\d+)#','($1*10^($2))',$exp_tim);
       $exp_fix = $exp_sci;
 
       // following two lines for debug
