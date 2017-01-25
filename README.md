@@ -2,15 +2,19 @@
 
 php simple calculator script
 
-examples:
+#### usage
+
+`calcpage.php?exp={expression}` where expressioin is a math expression
+
+#### example expressions
 
 ```
-calcpage.php?exp=1+2
-calcpage.php?exp=(4*4)/(3(4x2))
+1+2
+(4*4)/(3(4x2))
+1e10+(1/2)
+4^2+4**2
 ```
 
 supports `+ - / * x ** ^ e E`
 
-it returns a page with the answer and nothing else
-
-sample bash script included
+it returns a page with the plaintext answer and nothing else
