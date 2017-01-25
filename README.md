@@ -4,7 +4,7 @@ php simple calculator script
 
 #### usage
 
-`calcpage.php?exp={expression}` where expressioin is a math expression
+`calcpage.php?exp={expression}` where expression is a math expression
 
 #### example expressions
 
